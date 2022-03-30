@@ -1,0 +1,104 @@
+[
+  {
+    "id": 1,
+    "label": "None",
+    "value": "none",
+    "color": ""
+  },
+  {
+    "id": 2,
+    "label": "White",
+    "value": "white",
+    "color": "#ffffff"
+  },
+  {
+    "id": 3,
+    "label": "Black",
+    "value": "black",
+    "color": "#000000"
+  },
+  {
+    "id": 4,
+    "label": "Dark Gray",
+    "value": "darkgray",
+    "color": "#696969"
+  },
+  {
+    "id": 5,
+    "label": "Light Gray",
+    "value": "lightgray",
+    "color": "#dcdcdc"
+  },
+  {
+    "id": 6,
+    "label": "Red",
+    "value": "red",
+    "color": "#ff0000"
+  },
+  {
+    "id": 7,
+    "label": "Wine",
+    "value": "darkred",
+    "color": "#8b0000"
+  },
+  {
+    "id": 8,
+    "label": "Blue",
+    "value": "blue",
+    "color": "#0000ff"
+  },
+  {
+    "id": 9,
+    "label": "Light Blue",
+    "value": "lightblue",
+    "color": "#add8e6"
+  },
+  {
+    "id": 10,
+    "label": "Golden",
+    "value": "golden",
+    "color": "#bdb76b"
+  },
+  {
+    "id": 11,
+    "label": "Brown",
+    "value": "brown",
+    "color": "#a52a2a"
+  },
+  {
+    "id": 12,
+    "label": "Green",
+    "value": "darkgreen",
+    "color": "#006400"
+  },
+  {
+    "id": 13,
+    "label": "Light Green",
+    "value": "lightgreen",
+    "color": "#adff2f"
+  },
+  {
+    "id": 14,
+    "label": "Pink",
+    "value": "pink",
+    "color": "#ff1493"
+  },
+  {
+    "id": 15,
+    "label": "Violet",
+    "value": "violet",
+    "color": "#800080"
+  },
+  {
+    "id": 16,
+    "label": "Orange",
+    "value": "orange",
+    "color": "#ffa500"
+  },
+  {
+    "id": 17,
+    "label": "Yellow",
+    "value": "yellow",
+    "color": "#ffff00"
+  }
+]

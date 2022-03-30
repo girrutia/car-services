@@ -1,0 +1,29 @@
+.custom-select {
+  position: relative;
+  font-family: Nunito, sans-serif;
+  display: block;
+  margin: 1rem auto;
+  height: 28px;
+  width: 296px;
+  padding: 0.5rem;
+  border: 1px solid #00b8e6;
+  border-radius: 10px;
+  outline: none;
+}
+
+option {
+  background-color: #ffffff;
+  font-family: Nunito, sans-serif;
+  font-size: medium;
+}
+
+option:before {
+  display: none;
+  padding-right: 10px;
+  padding-left: 5px;
+  color: #fff;
+}
+
+option:hover:before {
+  display: inline;
+}
