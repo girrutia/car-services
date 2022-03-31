@@ -3,13 +3,16 @@ import CustomSelect from "../../shared/components/Select";
 
 type Props = {
   formData: IVehicle | undefined;
-  saveVehicleHandler: (vehicle: IVehicle | any) => (dispatch: VehicleDispatchType) => void;
+  saveVehicleHandler: (
+    vehicle: IVehicle | any
+  ) => (dispatch: VehicleDispatchType) => void;
   cancelEditHandler: () => VehicleAction;
   brandOptions: ComboType[];
   modelOptions: ComboType[];
   vehicleTypeOptions: ComboType[];
   colorOptions: ComboType[];
   yearOptions: ComboType[];
+  ownerOptions: ComboType[];
   selectedOptions: SelectedOptions | undefined;
   setSelectedOptions: React.Dispatch<
     React.SetStateAction<SelectedOptions | undefined>
@@ -26,6 +29,7 @@ const AddVehicle: React.FC<Props> = (props) => {
     vehicleTypeOptions,
     colorOptions,
     yearOptions,
+    ownerOptions,
     selectedOptions,
     setSelectedOptions,
   } = props;
@@ -36,6 +40,7 @@ const AddVehicle: React.FC<Props> = (props) => {
     vehicleType: null,
     patent: "",
     year: 0,
+    owner: null,
   };
   const [vehicle, setVehicle] = React.useState<IVehicle>(initialState);
 
@@ -54,77 +59,21 @@ const AddVehicle: React.FC<Props> = (props) => {
     });
   };
 
-  const handleOnChangeBrand = (e: React.ChangeEvent<HTMLSelectElement>) => {
+  const handleOnChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     if (e.target.value) {
       const option: ComboType = {
         value: e.target.value,
         label: e.target.options[e.target.selectedIndex].label,
       };
+      const newTargetValue: any =
+        e.target.id === "year" ? parseInt(option.label) : option;
       setSelectedOptions((prevState) => ({
         ...prevState,
-        brand: option,
-      }));
-      setVehicle((prevState) => ({ ...prevState, brand: option }));
-    }
-  };
-
-  const handleOnChangeModel = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    if (e.target.value) {
-      const option: ComboType = {
-        value: e.target.value,
-        label: e.target.options[e.target.selectedIndex].label,
-      };
-      setSelectedOptions((prevState) => ({
-        ...prevState,
-        model: option,
-      }));
-      setVehicle((prevState) => ({ ...prevState, model: option }));
-    }
-  };
-
-  const handleOnChangeVehicleType = (
-    e: React.ChangeEvent<HTMLSelectElement>
-  ) => {
-    if (e.target.value) {
-      const option: ComboType = {
-        value: e.target.value,
-        label: e.target.options[e.target.selectedIndex].label,
-      };
-      setSelectedOptions((prevState) => ({
-        ...prevState,
-        vehicleType: option,
-      }));
-      setVehicle((prevState) => ({ ...prevState, vehicleType: option }));
-    }
-  };
-
-  const handleOnChangeColor = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    if (e.target.value) {
-      const option: ComboType = {
-        value: e.target.value,
-        label: e.target.options[e.target.selectedIndex].label,
-      };
-      setSelectedOptions((prevState) => ({
-        ...prevState,
-        color: option,
-      }));
-      setVehicle((prevState) => ({ ...prevState, color: option }));
-    }
-  };
-
-  const handleOnChangeYear = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    if (e.target.value) {
-      const option: ComboType = {
-        value: e.target.value,
-        label: e.target.options[e.target.selectedIndex].label,
-      };
-      setSelectedOptions((prevState) => ({
-        ...prevState,
-        year: option,
+        [e.target.id]: newTargetValue,
       }));
       setVehicle((prevState) => ({
         ...prevState,
-        year: parseInt(option.label),
+        [e.target.id]: newTargetValue,
       }));
     }
   };
@@ -135,7 +84,8 @@ const AddVehicle: React.FC<Props> = (props) => {
     !!vehicle.vehicleType?.value &&
     !!vehicle.color?.value &&
     !!vehicle.patent &&
-    !!vehicle.year;
+    !!vehicle.year &&
+    !!vehicle.owner;
 
   const addNewVehicle = (e: React.FormEvent) => {
     e.preventDefault();
@@ -152,47 +102,60 @@ const AddVehicle: React.FC<Props> = (props) => {
   return (
     <form onSubmit={addNewVehicle} autoComplete="off" className="Add-generic">
       <CustomSelect
+        id="brand"
         options={brandOptions}
         placeholder="Select Brand..."
         addEmpty
-        onChangeHandler={handleOnChangeBrand}
+        onChangeHandler={handleOnChange}
         selectedValue={vehicle?.brand?.value}
       />
       <CustomSelect
+        id="model"
         options={modelOptions}
         placeholder="Select Model..."
         addEmpty
-        onChangeHandler={handleOnChangeModel}
+        onChangeHandler={handleOnChange}
         selectedValue={vehicle?.model?.value}
       />
       <CustomSelect
+        id="vehicleType"
         options={vehicleTypeOptions}
         placeholder="Select Type..."
         addEmpty
-        onChangeHandler={handleOnChangeVehicleType}
+        onChangeHandler={handleOnChange}
         selectedValue={vehicle?.vehicleType?.value}
       />
       <CustomSelect
+        id="year"
         options={yearOptions}
         placeholder="Select Year..."
         addEmpty
-        onChangeHandler={handleOnChangeYear}
+        onChangeHandler={handleOnChange}
         selectedValue={vehicle?.year}
       />
       <input
         type="text"
         id="patent"
-        placeholder="Patent..."
+        placeholder="Type Patent..."
         onChange={handleData}
         value={vehicle.patent}
         maxLength={8}
       />
       <CustomSelect
+        id="color"
         options={colorOptions}
         placeholder="Select Color..."
         addEmpty
-        onChangeHandler={handleOnChangeColor}
+        onChangeHandler={handleOnChange}
         selectedValue={vehicle?.color?.value}
+      />
+      <CustomSelect
+        id="owner"
+        options={ownerOptions}
+        placeholder="Select Owner..."
+        addEmpty
+        onChangeHandler={handleOnChange}
+        selectedValue={vehicle.owner?.value}
       />
       <button disabled={!isFormValid()} type="submit">
         {vehicle.id ? "Update" : "Add New"}

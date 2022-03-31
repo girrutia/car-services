@@ -6,6 +6,7 @@ const initialState: VehicleState = {
   colors: [],
   models: [],
   vehicleTypes: [],
+  owners: [],
 };
 
 const vehicleReducer = (
@@ -47,7 +48,7 @@ const vehicleReducer = (
       };
     case actionTypes.ADD_VEHICLE_SUCCESS:
       if (!action.vehicle) return state;
-      const { brand, color, model, patent, vehicleType, year } = action.vehicle;
+      const { brand, color, model, patent, vehicleType, year, owner } = action.vehicle;
       const newVehicle: IVehicle = {
         id: Math.random(), // not really unique
         brand,
@@ -56,6 +57,7 @@ const vehicleReducer = (
         patent,
         vehicleType,
         year,
+        owner,
       };
       return {
         ...state,
@@ -100,6 +102,7 @@ const vehicleReducer = (
         models: action.models || [],
         colors: action.colors || [],
         vehicleTypes: action.vehicleTypes || [],
+        owners: action.owners || [],
         loading: false,
         editing: false,
         error: {},

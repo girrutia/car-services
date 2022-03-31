@@ -1,6 +1,7 @@
 import * as actionTypes from "./actionTypes";
 import { toast } from "react-toastify";
 import vehicleService from "../../../services/vehicleService";
+import ownerService from "../../../services/ownerService";
 
 export function addVehicle(vehicle: IVehicle) {
   try {
@@ -100,17 +101,17 @@ export function fetchVehicles() {
       const models = await vehicleService.fetchModelsService();
       const vehicleTypes = await vehicleService.fetchVehicleTypesService();
       const colors = await vehicleService.fetchColorsService();
-      if (vehicles && brands && models && vehicleTypes && colors) {
-        const actionSuccess: VehicleAction = {
-          type: actionTypes.FETCH_VEHICLE_SUCCESS,
-          vehicles,
-          brands,
-          models,
-          vehicleTypes,
-          colors,
-        };
-        dispatch(actionSuccess);
-      }
+      const owners = await ownerService.fetchOwnersService();
+      const actionSuccess: VehicleAction = {
+        type: actionTypes.FETCH_VEHICLE_SUCCESS,
+        vehicles,
+        brands,
+        models,
+        vehicleTypes,
+        colors,
+        owners,
+      };
+      dispatch(actionSuccess);
     } catch (error) {
       const actionFailure: VehicleAction = {
         type: actionTypes.FETCH_VEHICLE_FAILURE,

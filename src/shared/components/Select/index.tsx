@@ -2,6 +2,7 @@ import React, { ChangeEvent } from "react";
 import "./styles.css";
 
 interface Props {
+  id: string;
   options: ComboType[];
   placeholder?: string;
   addEmpty?: boolean;
@@ -9,10 +10,11 @@ interface Props {
   selectedValue?: string | number;
 }
 const SelectCustom: React.FC<Props> = (props) => {
-  const { options, placeholder, addEmpty, onChangeHandler, selectedValue } =
+  const { id, options, placeholder, addEmpty, onChangeHandler, selectedValue } =
     props;
   return (
     <select
+      id={id}
       key={`select-${selectedValue}`}
       className="custom-select"
       placeholder={placeholder || ""}

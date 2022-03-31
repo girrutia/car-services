@@ -6,6 +6,7 @@ interface IVehicle {
   patent: string;
   color: ComboType | null;
   vehicleType: ComboType | null;
+  owner: ComboType | null;
 }
 
 interface IBrand {
@@ -39,6 +40,7 @@ type VehicleState = {
   models: IModel[];
   vehicleTypes: IVehicleType[];
   colors: IColor[];
+  owners: IOwner[];
   editing?: boolean;
   loading?: boolean;
   error?: ErrorCustomType;
@@ -53,6 +55,7 @@ interface VehicleAction {
   models?: IModel[];
   vehicleTypes?: IVehicleType[];
   colors?: IColor[];
+  owners?: IOwners[];
 }
 
 type SelectedOptions = {
@@ -61,6 +64,7 @@ type SelectedOptions = {
   year?: ComboType;
   color?: ComboType;
   vehicleType?: ComboType;
+  owner?: ComboType;
 };
 
 type VehicleDispatchType = (args: VehicleAction) => VehicleAction;

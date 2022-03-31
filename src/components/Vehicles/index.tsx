@@ -19,12 +19,16 @@ const VehiclesPage: React.FC = () => {
   const vehicleState: VehicleState = useSelector(
     (state: RootState) => state.vehicle
   );
+  const ownerState: OwnerState = useSelector(
+    (state: RootState) => state.owner
+  );
   const [vehicles, setVehicles] = useState<IVehicle[]>([]);
   const [brandOptions, setBrandOptions] = useState<ComboType[]>([]);
   const [allModelOptions, setAllModelOptions] = useState<ComboType[]>([]);
   const [modelOptions, setModelOptions] = useState<ComboType[]>([]);
   const [colorOptions, setColorOptions] = useState<ComboType[]>([]);
   const [vehicleTypeOptions, setVehicleTypeOptions] = useState<ComboType[]>([]);
+  const [ownerOptions, setOwnerOptions] = useState<ComboType[]>([]);
   const [formData, setFormData] = useState<IVehicle | undefined>();
   const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>();
 
@@ -97,6 +101,14 @@ const VehiclesPage: React.FC = () => {
         }))
       );
     }
+    if (vehicleState.owners) {
+      setOwnerOptions(
+        vehicleState.owners.map((o) => ({
+          value: o.id || `${o.name} ${o.surname}`,
+          label: `${o.name} ${o.surname}`,
+        }))
+      );
+    }
   }, [vehicleState]);
 
   useEffect(() => {
@@ -129,6 +141,7 @@ const VehiclesPage: React.FC = () => {
         modelOptions={modelOptions}
         vehicleTypeOptions={vehicleTypeOptions}
         yearOptions={getYearOptions()}
+        ownerOptions={ownerOptions}
         selectedOptions={selectedOptions}
         setSelectedOptions={setSelectedOptions}
       />

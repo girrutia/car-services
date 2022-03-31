@@ -30,7 +30,7 @@ const Vehicle: React.FC<Props> = ({
     <div className="Generic">
       <div>
         <h1>{`${vehicle.brand?.label} - ${vehicle.model?.label} (${vehicle.year})`}</h1>
-        <p>{`${vehicle.vehicleType?.label} - ${vehicle.color?.label} - ${vehicle.patent}`}</p>
+        <p>{`${vehicle.vehicleType?.label} - ${vehicle.color?.label} - ${vehicle.patent} - Owner: ${vehicle.owner?.label}`}</p>
       </div>
       <div>
         <button
