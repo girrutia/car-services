@@ -16,7 +16,7 @@ interface IBrand {
 }
 
 interface IModel {
-  id_brand: number;
+  brand_id: number;
   id: number;
   name: string;
   slug: string;

@@ -1,1 +1,52 @@
-[]
+[
+  {
+    "id": 1,
+    "brand": {
+      "value": 14,
+      "label": "Chevrolet"
+    },
+    "color": {
+      "value": 2,
+      "label": "White"
+    },
+    "model": {
+      "value": 126,
+      "label": "Blazer"
+    },
+    "patent": "ACW124",
+    "vehicleType": {
+      "value": 2,
+      "label": "Truck"
+    },
+    "year": 2005,
+    "owner": {
+      "value": 1,
+      "label": "Jan Van Eyck"
+    }
+  },
+  {
+    "id": 2,
+    "brand": {
+      "value": 77,
+      "label": "Volkswagen"
+    },
+    "color": {
+      "value": 4,
+      "label": "Dark Gray"
+    },
+    "model": {
+      "value": 1009,
+      "label": "Gol Trend"
+    },
+    "patent": "LJM804",
+    "vehicleType": {
+      "value": 1,
+      "label": "Car"
+    },
+    "year": 2012,
+    "owner": {
+      "value": 13,
+      "label": "Pieter Bruegel"
+    }
+  }
+]

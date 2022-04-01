@@ -115,7 +115,7 @@ const VehiclesPage: React.FC = () => {
       const filteredModels: IModel[] =
         vehicleState.modelOptions.filter(
           (m) =>
-            m.id_brand ===
+            m.brand_id ===
             parseInt((selectedOptions.brand?.value || "").toString())
         ) || [];
       filteredModelOptions = filteredModels.map((m) => ({
