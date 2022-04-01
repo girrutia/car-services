@@ -13,9 +13,9 @@ type Props = {
   colorOptions: ComboType[];
   yearOptions: ComboType[];
   ownerOptions: ComboType[];
-  selectedOptions: SelectedOptions | undefined;
+  selectedOptions: VehicleSelectedOptions | undefined;
   setSelectedOptions: React.Dispatch<
-    React.SetStateAction<SelectedOptions | undefined>
+    React.SetStateAction<VehicleSelectedOptions | undefined>
   >;
 };
 

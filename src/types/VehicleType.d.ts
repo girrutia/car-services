@@ -58,13 +58,13 @@ interface VehicleAction {
   ownerOptions?: IOwners[];
 }
 
-type SelectedOptions = {
-  brand?: ComboType;
-  model?: ComboType;
-  year?: ComboType;
-  color?: ComboType;
-  vehicleType?: ComboType;
-  owner?: ComboType;
+type VehicleSelectedOptions = {
+  brand?: ComboType | null;
+  model?: ComboType | null;
+  year?: ComboType | null;
+  color?: ComboType | null;
+  vehicleType?: ComboType | null;
+  owner?: ComboType | null;
 };
 
 type VehicleDispatchType = (args: VehicleAction) => VehicleAction;

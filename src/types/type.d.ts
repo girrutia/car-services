@@ -3,6 +3,7 @@ type RootState = {
   article: ArticleState;
   owner: OwnerState;
   vehicle: VehicleState;
+  service: ServiceState;
 };
 
 type ErrorCustomType = {

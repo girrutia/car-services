@@ -67,6 +67,8 @@ function BurgerMenu(props: MenuProps) {
         <hr />
         <SidebarLink title="Vehicles" route="/vehicles" />
         <hr />
+        <SidebarLink title="Services" route="/services" />
+        <hr />
       </nav>
     </div>
   );

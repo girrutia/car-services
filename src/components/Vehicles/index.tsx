@@ -28,7 +28,7 @@ const VehiclesPage: React.FC = () => {
   const [vehicleTypeOptions, setVehicleTypeOptions] = useState<ComboType[]>([]);
   const [ownerOptions, setOwnerOptions] = useState<ComboType[]>([]);
   const [formData, setFormData] = useState<IVehicle | undefined>();
-  const [selectedOptions, setSelectedOptions] = useState<SelectedOptions>();
+  const [selectedOptions, setSelectedOptions] = useState<VehicleSelectedOptions>();
 
   const loading: boolean = !!vehicleState.loading;
   const editing: boolean = !!vehicleState.editing;

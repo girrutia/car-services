@@ -55,6 +55,15 @@ main > h1 {
   padding: 0px 20px;
 }
 
+.tdw50 {
+  width: 50%;
+}
+
+.tdAlignLeft {
+  display: flex;
+  align-items: flex-start;
+}
+
 .Add-generic input {
   display: block;
   font-family: Nunito, sans-serif;
