@@ -2,11 +2,11 @@ import * as actionTypes from "../actions/vehicles/actionTypes";
 
 const initialState: VehicleState = {
   vehicles: [],
-  brands: [],
-  colors: [],
-  models: [],
-  vehicleTypes: [],
-  owners: [],
+  brandOptions: [],
+  modelOptions: [],
+  colorOptions: [],
+  vehicleTypeOptions: [],
+  ownerOptions: [],
 };
 
 const vehicleReducer = (
@@ -98,11 +98,11 @@ const vehicleReducer = (
       return {
         ...state,
         vehicles: action.vehicles || [],
-        brands: action.brands || [],
-        models: action.models || [],
-        colors: action.colors || [],
-        vehicleTypes: action.vehicleTypes || [],
-        owners: action.owners || [],
+        brandOptions: action.brandOptions || [],
+        modelOptions: action.modelOptions || [],
+        colorOptions: action.colorOptions || [],
+        vehicleTypeOptions: action.vehicleTypeOptions || [],
+        ownerOptions: action.ownerOptions || [],
         loading: false,
         editing: false,
         error: {},

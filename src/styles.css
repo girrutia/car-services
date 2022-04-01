@@ -51,8 +51,15 @@ main > h1 {
   border-radius: 10px;
 }
 
+.Add-generic table tbody tr td {
+  padding: 0px 20px;
+}
+
 .Add-generic input {
   display: block;
+  font-family: Nunito, sans-serif;
+  font-weight: 500;
+  color: #222;
   margin: 1rem auto;
   width: 20rem;
   padding: 0.5rem;
@@ -61,8 +68,15 @@ main > h1 {
   outline: none;
 }
 
+.Add-generic input::placeholder {
+  color: #222;
+}
+
 .Add-generic > textarea {
   display: block;
+  font-family: Nunito, sans-serif;
+  font-weight: 500;
+  color: #222;
   min-height: 4rem;
   max-height: 10rem;
   margin: 1rem auto;
@@ -74,6 +88,10 @@ main > h1 {
   border-radius: 10px;
   outline: none;
   overflow: visible;
+}
+
+.Add-generic > textarea::placeholder {
+  color: #222;
 }
 
 .Add-generic button {

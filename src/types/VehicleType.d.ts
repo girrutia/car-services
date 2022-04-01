@@ -36,11 +36,11 @@ interface IVehicleType {
 
 type VehicleState = {
   vehicles: IVehicle[];
-  brands: IBrand[];
-  models: IModel[];
-  vehicleTypes: IVehicleType[];
-  colors: IColor[];
-  owners: IOwner[];
+  brandOptions: IBrand[];
+  modelOptions: IModel[];
+  vehicleTypeOptions: IVehicleType[];
+  colorOptions: IColor[];
+  ownerOptions: IOwner[];
   editing?: boolean;
   loading?: boolean;
   error?: ErrorCustomType;
@@ -51,11 +51,11 @@ interface VehicleAction {
   vehicle?: IVehicle;
   error?: ErrorCustomType;
   vehicles?: IVehicle[];
-  brands?: IBrand[];
-  models?: IModel[];
-  vehicleTypes?: IVehicleType[];
-  colors?: IColor[];
-  owners?: IOwners[];
+  brandOptions?: IBrand[];
+  modelOptions?: IModel[];
+  vehicleTypeOptions?: IVehicleType[];
+  colorOptions?: IColor[];
+  ownerOptions?: IOwners[];
 }
 
 type SelectedOptions = {

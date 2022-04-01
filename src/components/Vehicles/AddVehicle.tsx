@@ -101,62 +101,89 @@ const AddVehicle: React.FC<Props> = (props) => {
 
   return (
     <form onSubmit={addNewVehicle} autoComplete="off" className="Add-generic">
-      <CustomSelect
-        id="brand"
-        options={brandOptions}
-        placeholder="Select Brand..."
-        addEmpty
-        onChangeHandler={handleOnChange}
-        selectedValue={vehicle?.brand?.value}
-      />
-      <CustomSelect
-        id="model"
-        options={modelOptions}
-        placeholder="Select Model..."
-        addEmpty
-        onChangeHandler={handleOnChange}
-        selectedValue={vehicle?.model?.value}
-      />
-      <CustomSelect
-        id="vehicleType"
-        options={vehicleTypeOptions}
-        placeholder="Select Type..."
-        addEmpty
-        onChangeHandler={handleOnChange}
-        selectedValue={vehicle?.vehicleType?.value}
-      />
-      <CustomSelect
-        id="year"
-        options={yearOptions}
-        placeholder="Select Year..."
-        addEmpty
-        onChangeHandler={handleOnChange}
-        selectedValue={vehicle?.year}
-      />
-      <input
-        type="text"
-        id="patent"
-        placeholder="Type Patent..."
-        onChange={handleData}
-        value={vehicle.patent}
-        maxLength={8}
-      />
-      <CustomSelect
-        id="color"
-        options={colorOptions}
-        placeholder="Select Color..."
-        addEmpty
-        onChangeHandler={handleOnChange}
-        selectedValue={vehicle?.color?.value}
-      />
-      <CustomSelect
-        id="owner"
-        options={ownerOptions}
-        placeholder="Select Owner..."
-        addEmpty
-        onChangeHandler={handleOnChange}
-        selectedValue={vehicle.owner?.value}
-      />
+      <table>
+        <tbody>
+          <tr>
+            <td>
+              <CustomSelect
+                id="brand"
+                options={brandOptions}
+                placeholder="Select Brand..."
+                addEmpty
+                onChangeHandler={handleOnChange}
+                selectedValue={vehicle?.brand?.value}
+              />
+            </td>
+            <td>
+              <CustomSelect
+                id="model"
+                options={modelOptions}
+                placeholder="Select Model..."
+                addEmpty
+                onChangeHandler={handleOnChange}
+                selectedValue={vehicle?.model?.value}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <CustomSelect
+                id="vehicleType"
+                options={vehicleTypeOptions}
+                placeholder="Select Type..."
+                addEmpty
+                onChangeHandler={handleOnChange}
+                selectedValue={vehicle?.vehicleType?.value}
+              />
+            </td>
+            <td>
+              <CustomSelect
+                id="year"
+                options={yearOptions}
+                placeholder="Select Year..."
+                addEmpty
+                onChangeHandler={handleOnChange}
+                selectedValue={vehicle?.year}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <input
+                type="text"
+                id="patent"
+                placeholder="Type Patent..."
+                onChange={handleData}
+                value={vehicle.patent}
+                maxLength={8}
+              />
+            </td>
+            <td>
+              <CustomSelect
+                id="color"
+                options={colorOptions}
+                placeholder="Select Color..."
+                addEmpty
+                onChangeHandler={handleOnChange}
+                selectedValue={vehicle?.color?.value}
+              />
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <CustomSelect
+                id="owner"
+                options={ownerOptions}
+                placeholder="Select Owner..."
+                addEmpty
+                onChangeHandler={handleOnChange}
+                selectedValue={vehicle.owner?.value}
+              />
+            </td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
       <button disabled={!isFormValid()} type="submit">
         {vehicle.id ? "Update" : "Add New"}
       </button>

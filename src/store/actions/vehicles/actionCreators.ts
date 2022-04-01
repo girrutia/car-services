@@ -97,19 +97,20 @@ export function fetchVehicles() {
       };
       dispatch(actionInit);
       const vehicles = await vehicleService.fetchVehiclesService();
-      const brands = await vehicleService.fetchBrandsService();
-      const models = await vehicleService.fetchModelsService();
-      const vehicleTypes = await vehicleService.fetchVehicleTypesService();
-      const colors = await vehicleService.fetchColorsService();
-      const owners = await ownerService.fetchOwnersService();
+      const brandOptions = await vehicleService.fetchBrandsService();
+      const modelOptions = await vehicleService.fetchModelsService();
+      const vehicleTypeOptions =
+        await vehicleService.fetchVehicleTypesService();
+      const colorOptions = await vehicleService.fetchColorsService();
+      const ownerOptions = await ownerService.fetchOwnersService();
       const actionSuccess: VehicleAction = {
         type: actionTypes.FETCH_VEHICLE_SUCCESS,
         vehicles,
-        brands,
-        models,
-        vehicleTypes,
-        colors,
-        owners,
+        brandOptions,
+        modelOptions,
+        vehicleTypeOptions,
+        colorOptions,
+        ownerOptions,
       };
       dispatch(actionSuccess);
     } catch (error) {

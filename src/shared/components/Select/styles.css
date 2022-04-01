@@ -1,11 +1,13 @@
 .custom-select {
   position: relative;
   font-family: Nunito, sans-serif;
+  font-weight: 500;
+  color: #222;
   display: block;
   margin: 1rem auto;
   height: 28px;
   width: 296px;
-  padding: 0.5rem;
+  padding: 0px 0.5rem;
   border: 1px solid #00b8e6;
   border-radius: 10px;
   outline: none;

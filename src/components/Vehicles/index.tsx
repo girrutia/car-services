@@ -19,9 +19,7 @@ const VehiclesPage: React.FC = () => {
   const vehicleState: VehicleState = useSelector(
     (state: RootState) => state.vehicle
   );
-  const ownerState: OwnerState = useSelector(
-    (state: RootState) => state.owner
-  );
+  const ownerState: OwnerState = useSelector((state: RootState) => state.owner);
   const [vehicles, setVehicles] = useState<IVehicle[]>([]);
   const [brandOptions, setBrandOptions] = useState<ComboType[]>([]);
   const [allModelOptions, setAllModelOptions] = useState<ComboType[]>([]);
@@ -69,41 +67,41 @@ const VehiclesPage: React.FC = () => {
     if (vehicleState.vehicles) {
       setVehicles(vehicleState.vehicles);
     }
-    if (vehicleState.brands) {
+    if (vehicleState.brandOptions) {
       setBrandOptions(
-        vehicleState.brands.map((o) => ({
+        vehicleState.brandOptions.map((o) => ({
           value: o.id,
           label: o.name,
         }))
       );
     }
-    if (vehicleState.models) {
+    if (vehicleState.modelOptions) {
       setAllModelOptions(
-        vehicleState.models.map((o) => ({
+        vehicleState.modelOptions.map((o) => ({
           value: o.id,
           label: o.name,
         }))
       );
     }
-    if (vehicleState.colors) {
+    if (vehicleState.colorOptions) {
       setColorOptions(
-        vehicleState.colors.map((o) => ({
+        vehicleState.colorOptions.map((o) => ({
           value: o.id,
           label: o.label,
         }))
       );
     }
-    if (vehicleState.vehicleTypes) {
+    if (vehicleState.vehicleTypeOptions) {
       setVehicleTypeOptions(
-        vehicleState.vehicleTypes.map((o) => ({
+        vehicleState.vehicleTypeOptions.map((o) => ({
           value: o.id,
           label: o.name,
         }))
       );
     }
-    if (vehicleState.owners) {
+    if (vehicleState.ownerOptions) {
       setOwnerOptions(
-        vehicleState.owners.map((o) => ({
+        vehicleState.ownerOptions.map((o) => ({
           value: o.id || `${o.name} ${o.surname}`,
           label: `${o.name} ${o.surname}`,
         }))
@@ -115,7 +113,7 @@ const VehiclesPage: React.FC = () => {
     let filteredModelOptions: ComboType[] = [];
     if (selectedOptions?.brand) {
       const filteredModels: IModel[] =
-        vehicleState.models.filter(
+        vehicleState.modelOptions.filter(
           (m) =>
             m.id_brand ===
             parseInt((selectedOptions.brand?.value || "").toString())
