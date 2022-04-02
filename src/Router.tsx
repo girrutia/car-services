@@ -10,16 +10,16 @@ const Router: React.FC = () => {
   return (
     <ConnectedRouter history={history}>
       <Switch>
+        <Route path="/services">
+          <ServicesPage />
+        </Route>
         <Route path="/owners">
           <OwnersPage />
         </Route>
         <Route path="/vehicles">
           <VehiclesPage />
         </Route>
-        <Route path="/services">
-          <ServicesPage />
-        </Route>
-        <Redirect from="/" to="/vehicles" />
+        <Redirect from="/" to="/services" />
       </Switch>
     </ConnectedRouter>
   );

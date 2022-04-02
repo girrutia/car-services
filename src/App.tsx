@@ -5,14 +5,14 @@ import { BrowserRouter } from "react-router-dom";
 import BurgerMenu from "./shared/components/BurgerMenu";
 
 const App: React.FC = () => {
-  const [open, setOpen] = useState(false);
+  const [navbarOpen, setNavbarOpen] = useState(false);
   return (
     <main>
       <BrowserRouter>
         <BurgerMenu
-          open={open}
-          onClose={() => setOpen((prevState) => !prevState)}
-        >{<></>}</BurgerMenu>
+          open={navbarOpen}
+          handleToggle={() => setNavbarOpen((prevState) => !prevState)}
+        />
         <ToastContainer
           transition={Zoom}
           position="top-right"

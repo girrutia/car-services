@@ -1,76 +1,103 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import "./styles.css";
+import { MdClose } from "react-icons/md";
+import { FiMenu } from "react-icons/fi";
+import { BiCar } from "react-icons/bi";
+import { BsPerson } from "react-icons/bs";
+import { AiOutlineTool } from "react-icons/ai";
 
 interface MenuProps {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   open: boolean;
-  onClose: () => void;
+  handleToggle: () => void;
 }
 
 const SidebarLink = ({
   title,
-  icon,
+  Icon,
   route,
   onClick,
   altTitle,
 }: {
   title: string;
-  icon?: any;
+  Icon?: JSX.Element;
   route: string;
   onClick?: any;
   altTitle?: string;
 }) => (
-  <NavLink to={route} onClick={onClick} className="navLink">
-    <li title={`${altTitle || ""}`}>
-      {/* {icon ? <span/> : ''} */}
-      {icon ? <img src={`../../../../img/${icon}.png`} alt="" /> : ""}
+  <NavLink to={route} onClick={onClick}>
+    <li
+      title={`${altTitle || ""}`}
+      style={{ display: "flex", flexDirection: "row", alignItems: "center" }}
+    >
+      {Icon ? (
+        <div
+          style={{
+            padding: "10px 10px",
+            background: "transparent",
+            display: "flex",
+          }}
+        >
+          {Icon}
+        </div>
+      ) : (
+        ""
+      )}
       <p>{title}</p>
     </li>
   </NavLink>
 );
 
 function BurgerMenu(props: MenuProps) {
-  const { children, open, onClose } = props;
-
-  function handleKeypress(event: React.KeyboardEvent<HTMLDivElement>) {
-    if (event.keyCode === 27) {
-      onClose();
-    }
-  }
+  const { children, open, handleToggle } = props;
 
   React.useEffect(() => {
     function fn(event: KeyboardEvent) {
       if (event.keyCode === 27) {
-        onClose();
+        handleToggle();
       }
     }
 
     document.addEventListener("keydown", fn);
 
     return () => document.removeEventListener("keydown", fn);
-  }, [onClose]);
+  }, [handleToggle]);
 
   return (
-    <div>
-      <div
-        onClick={onClose}
-        role="presentation"
-        onKeyPress={handleKeypress}
-        data-open={JSON.stringify(open)}
-        className="overlay"
-      />
-      <nav data-open={JSON.stringify(open)} className="menu">
-        {children}
-        <hr />
-        <SidebarLink title="Owners" route="/owners" />
-        <hr />
-        <SidebarLink title="Vehicles" route="/vehicles" />
-        <hr />
-        <SidebarLink title="Services" route="/services" />
-        <hr />
-      </nav>
-    </div>
+    <nav className="navBar">
+      <button onClick={handleToggle}>
+        {open ? (
+          <MdClose style={{ color: "#fff", width: "40px", height: "40px" }} />
+        ) : (
+          <FiMenu style={{ color: "#7b7b7b", width: "40px", height: "40px" }} />
+        )}
+      </button>
+      {children ? (
+        children
+      ) : (
+        <ul className={`menuNav ${open ? " showMenu" : ""}`}>
+          <SidebarLink
+            title="Services"
+            route="/services"
+            onClick={() => handleToggle()}
+            Icon={<AiOutlineTool />}
+          />
+          <SidebarLink
+            title="Owners"
+            route="/owners"
+            onClick={() => handleToggle()}
+            Icon={<BsPerson />}
+          />
+          <SidebarLink
+            title="Vehicles"
+            route="/vehicles"
+            onClick={() => handleToggle()}
+            Icon={<BiCar />}
+          />
+        </ul>
+      )}
+    </nav>
   );
 }
 
