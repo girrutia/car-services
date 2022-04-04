@@ -47,6 +47,7 @@ type ComboTypeVehicle = {
 };
 
 interface IRestriction {
+  serviceType_id?: number;
   color_id?: number;
   model_id?: number;
   brand_id?: number;

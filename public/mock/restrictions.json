@@ -1,8 +1,10 @@
 [
   {
+    "serviceType_id": 5,
     "color_id": 4
   },
   {
+    "serviceType_id": 5,
     "color_id": 5
   }
 ]
