@@ -1,7 +1,8 @@
 interface IService {
   id?: number;
-  serviceTypes: ComboType[] | null;
-  vehicle: ComboType | null;
+  serviceTypes: ServiceTypeWithCost[] | null;
+  vehicle: ComboTypeVehicle | null;
+  totalCost: number;
   creationDate: Date;
   updateDate?: Date | null;
 }
@@ -15,9 +16,33 @@ type ServiceState = {
   error?: ErrorCustomType;
 };
 
+interface ServiceTypeWithCost {
+  id: number;
+  serviceType: ComboType;
+  cost: number;
+}
+
+interface ICost {
+  vehicleTypeId: number;
+  cost: number;
+}
+
 type ServiceType = {
   id: number;
   name: string;
+  costs?: ICost[];
+};
+
+type ComboTypeServiceType = {
+  value: string | number;
+  label: string;
+  costs?: ICost[];
+};
+
+type ComboTypeVehicle = {
+  value: string | number;
+  label: string;
+  vehicle: IVehicle;
 };
 
 interface ServiceAction {

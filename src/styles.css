@@ -77,6 +77,11 @@ main > h1 {
   outline: none;
 }
 
+.input-cost {
+  width: 5rem !important;
+  margin: 0 auto !important;
+}
+
 .Add-generic input::placeholder {
   color: #222;
 }
@@ -189,4 +194,8 @@ main > h1 {
 
 .Generic button:hover {
   background: #e06a6a;
+}
+
+.pBold {
+  font-weight: bold;
 }

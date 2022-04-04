@@ -22,8 +22,10 @@ const ServicesPage: React.FC = () => {
     (state: RootState) => state.vehicle
   );
   const [services, setServices] = useState<IService[]>([]);
-  const [serviceTypeOptions, setServiceTypeOptions] = useState<ComboType[]>([]);
-  const [serviceOptions, setVehicleOptions] = useState<ComboType[]>([]);
+  const [serviceTypeOptions, setServiceTypeOptions] = useState<
+    ComboTypeServiceType[]
+  >([]);
+  const [vehicleOptions, setVehicleOptions] = useState<ComboTypeVehicle[]>([]);
   const [formData, setFormData] = useState<IService | undefined>();
 
   const loading: boolean = !!serviceState.loading;
@@ -68,6 +70,7 @@ const ServicesPage: React.FC = () => {
         serviceState.serviceTypeOptions.map((o) => ({
           value: o.id,
           label: o.name,
+          costs: o.costs,
         }))
       );
     }
@@ -76,6 +79,7 @@ const ServicesPage: React.FC = () => {
         serviceState.vehicleOptions.map((o) => ({
           value: o.id || 0,
           label: `${o.brand?.label} ${o.model?.label} (${o.year}), Patent: ${o.patent}`,
+          vehicle: o,
         }))
       );
     }
@@ -90,7 +94,7 @@ const ServicesPage: React.FC = () => {
         saveServiceHandler={saveServiceHandler}
         cancelEditHandler={cancelEditServiceHandler}
         serviceTypeOptions={serviceTypeOptions}
-        vehicleOptions={serviceOptions}
+        vehicleOptions={vehicleOptions}
       />
       {services?.map((service: IService) => (
         <Service

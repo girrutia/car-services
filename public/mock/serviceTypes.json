@@ -1,23 +1,153 @@
 [
   {
     "id": 1,
-    "name": "Oil Change"
+    "name": "Oil Change",
+    "costs": [
+      {
+        "vehicleTypeId": 1,
+        "cost": "3500"
+      },
+      {
+        "vehicleTypeId": 2,
+        "cost": "6000"
+      },
+      {
+        "vehicleTypeId": 3,
+        "cost": "7500"
+      },
+      {
+        "vehicleTypeId": 4,
+        "cost": "7500"
+      },
+      {
+        "vehicleTypeId": 5,
+        "cost": "6000"
+      },
+      {
+        "vehicleTypeId": 6,
+        "cost": "1500"
+      }
+    ]
   },
   {
     "id": 2,
-    "name": "Filter Change"
+    "name": "Filter Change",
+    "costs": [
+      {
+        "vehicleTypeId": 1,
+        "cost": "1500"
+      },
+      {
+        "vehicleTypeId": 2,
+        "cost": "3000"
+      },
+      {
+        "vehicleTypeId": 3,
+        "cost": "4500"
+      },
+      {
+        "vehicleTypeId": 4,
+        "cost": "4500"
+      },
+      {
+        "vehicleTypeId": 5,
+        "cost": "4000"
+      },
+      {
+        "vehicleTypeId": 6,
+        "cost": "350"
+      }
+    ]
   },
   {
     "id": 3,
-    "name": "Belt Change"
+    "name": "Belt Change",
+    "costs": [
+      {
+        "vehicleTypeId": 1,
+        "cost": "4500"
+      },
+      {
+        "vehicleTypeId": 2,
+        "cost": "6000"
+      },
+      {
+        "vehicleTypeId": 3,
+        "cost": "8500"
+      },
+      {
+        "vehicleTypeId": 4,
+        "cost": "8500"
+      },
+      {
+        "vehicleTypeId": 5,
+        "cost": "4500"
+      },
+      {
+        "vehicleTypeId": 6,
+        "cost": "0.00"
+      }
+    ]
   },
   {
     "id": 4,
-    "name": "General Review"
+    "name": "General Review",
+    "costs": [
+      {
+        "vehicleTypeId": 1,
+        "cost": "2700"
+      },
+      {
+        "vehicleTypeId": 2,
+        "cost": "3100"
+      },
+      {
+        "vehicleTypeId": 3,
+        "cost": "4150"
+      },
+      {
+        "vehicleTypeId": 4,
+        "cost": "4150"
+      },
+      {
+        "vehicleTypeId": 5,
+        "cost": "5000"
+      },
+      {
+        "vehicleTypeId": 6,
+        "cost": "1000"
+      }
+    ]
   },
   {
     "id": 5,
-    "name": "Painting"
+    "name": "Painting",
+    "costs": [
+      {
+        "vehicleTypeId": 1,
+        "cost": "13500"
+      },
+      {
+        "vehicleTypeId": 2,
+        "cost": "16000"
+      },
+      {
+        "vehicleTypeId": 3,
+        "cost": "17500"
+      },
+      {
+        "vehicleTypeId": 4,
+        "cost": "17500"
+      },
+      {
+        "vehicleTypeId": 5,
+        "cost": "16000"
+      },
+      {
+        "vehicleTypeId": 6,
+        "cost": "8500"
+      }
+    ]
   },
   {
     "id": 6,

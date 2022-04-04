@@ -33,9 +33,10 @@ const Service: React.FC<Props> = ({
         <h1>{`${service.vehicle?.label}`}</h1>
         <ul>
           {service.serviceTypes?.map((s, index) => (
-            <li key={index}>{`${s.label}`}</li>
+            <li key={index}>{`${s.serviceType.label} (${s.cost})`}</li>
           ))}
         </ul>
+        <p className="pBold">{`Total Cost: ${service.totalCost}`}</p>
       </div>
       <div>
         <button

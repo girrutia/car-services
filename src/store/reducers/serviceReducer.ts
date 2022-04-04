@@ -45,11 +45,12 @@ const serviceReducer = (
       };
     case actionTypes.ADD_SERVICE_SUCCESS:
       if (!action.service) return state;
-      const { creationDate, serviceTypes, vehicle } = action.service;
+      const { creationDate, serviceTypes, vehicle, totalCost } = action.service;
       const newService: IService = {
         id: Math.random(), // not really unique
         serviceTypes,
         vehicle,
+        totalCost,
         creationDate: creationDate,
       };
       return {
