@@ -99,11 +99,13 @@ export function fetchServices() {
       const services = await serviceService.fetchServicesService();
       const serviceTypeOptions = await serviceService.fetchServiceTypeService();
       const vehicleOptions = await vehicleService.fetchVehiclesService();
+      const restrictionOptions = await serviceService.fetchRestrictionsService();
       const actionSuccess: ServiceAction = {
         type: actionTypes.FETCH_SERVICE_SUCCESS,
         services,
         serviceTypeOptions,
         vehicleOptions,
+        restrictionOptions,
       };
       dispatch(actionSuccess);
     } catch (error) {

@@ -10,6 +10,7 @@ type Props = {
   cancelEditHandler: () => ServiceAction;
   serviceTypeOptions: ComboTypeServiceType[];
   vehicleOptions: ComboTypeVehicle[];
+  restrictionOptions: IRestriction[];
 };
 
 const AddService: React.FC<Props> = (props) => {
@@ -19,6 +20,7 @@ const AddService: React.FC<Props> = (props) => {
     cancelEditHandler,
     serviceTypeOptions,
     vehicleOptions,
+    restrictionOptions,
   } = props;
   const initialState: IService = {
     serviceTypes: null,
@@ -45,12 +47,48 @@ const AddService: React.FC<Props> = (props) => {
     );
   };
 
+  const checkRestrictions = (vehicle: IVehicle) => {
+    try {
+      return (
+        restrictionOptions &&
+        restrictionOptions.some(
+          (x) =>
+            (!x.color_id ||
+            +x.color_id === +(vehicle.color?.value || 0)) &&
+            (!x.brand_id ||
+            +x.brand_id === +(vehicle.brand?.value || 0)) &&
+            (!x.model_id ||
+            +x.model_id === +(vehicle.model?.value || 0)) &&
+            (!x.owner_id ||
+            +x.owner_id === +(vehicle.owner?.value || 0)) &&
+            (!x.vehicleType_id ||
+            +x.vehicleType_id === +(vehicle.vehicleType?.value || 0))
+        )
+      );
+    } catch (error) {
+      toast.error(`An error has occured checking restrictions.`);
+    }
+  };
+
   const handleOnChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     if (e.target.value) {
+      const vehicle: IVehicle =
+        vehicleOptions[e.target.selectedIndex - 1].vehicle;
+      if (checkRestrictions(vehicle)) {
+        setService((prevState) => ({
+          ...prevState,
+          vehicle: null,
+          serviceTypes: null,
+        }));
+        toast.error(
+          `The selected vehicle is restricted for service provision. Please check current restrictions.`
+        );
+        return;
+      }
       const option: ComboTypeVehicle = {
         value: e.target.value,
         label: e.target.options[e.target.selectedIndex].label,
-        vehicle: vehicleOptions[e.target.selectedIndex - 1].vehicle,
+        vehicle,
       };
       setService((prevState) => ({
         ...prevState,
@@ -173,6 +211,7 @@ const AddService: React.FC<Props> = (props) => {
           <tr>
             <td colSpan={2} className="tdAlignLeft">
               <CustomSelect
+                key={service?.vehicle?.value}
                 id="vehicle"
                 options={vehicleOptions}
                 placeholder="Select Vehicle..."

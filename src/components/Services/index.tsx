@@ -78,7 +78,7 @@ const ServicesPage: React.FC = () => {
       setVehicleOptions(
         serviceState.vehicleOptions.map((o) => ({
           value: o.id || 0,
-          label: `${o.brand?.label} ${o.model?.label} (${o.year}), Patent: ${o.patent}`,
+          label: `${o.brand?.label} ${o.model?.label} (${o.year}), Patent: ${o.patent}, Color: ${o.color?.label}`,
           vehicle: o,
         }))
       );
@@ -95,6 +95,7 @@ const ServicesPage: React.FC = () => {
         cancelEditHandler={cancelEditServiceHandler}
         serviceTypeOptions={serviceTypeOptions}
         vehicleOptions={vehicleOptions}
+        restrictionOptions={serviceState.restrictionOptions || []}
       />
       {services?.map((service: IService) => (
         <Service

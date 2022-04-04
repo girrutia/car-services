@@ -25,4 +25,16 @@ export default {
       throw error;
     }
   },
+  fetchRestrictionsService: async (): Promise<IRestriction[]> => {
+    let retVal: IRestriction[] = [];
+    try {
+      const result = await axios.get("/mock/restrictions.json");
+      if (result?.data) {
+        retVal = result.data;
+      }
+      return retVal;
+    } catch (error) {
+      throw error;
+    }
+  },
 };

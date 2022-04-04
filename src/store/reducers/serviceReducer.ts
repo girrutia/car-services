@@ -4,6 +4,7 @@ const initialState: ServiceState = {
   services: [],
   serviceTypeOptions: [],
   vehicleOptions: [],
+  restrictionOptions: [],
 };
 
 const serviceReducer = (
@@ -94,6 +95,7 @@ const serviceReducer = (
         services: action.services || [],
         serviceTypeOptions: action.serviceTypeOptions || [],
         vehicleOptions: action.vehicleOptions || [],
+        restrictionOptions: action.restrictionOptions || [],
         loading: false,
         editing: false,
         error: {},

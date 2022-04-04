@@ -11,6 +11,7 @@ type ServiceState = {
   services: IService[];
   serviceTypeOptions: ServiceType[];
   vehicleOptions: IVehicle[];
+  restrictionOptions?: IRestriction[];
   editing?: boolean;
   loading?: boolean;
   error?: ErrorCustomType;
@@ -45,6 +46,14 @@ type ComboTypeVehicle = {
   vehicle: IVehicle;
 };
 
+interface IRestriction {
+  color_id?: number;
+  model_id?: number;
+  brand_id?: number;
+  vehicleType_id?: number;
+  owner_id?: number;
+}
+
 interface ServiceAction {
   type: string;
   service?: IService;
@@ -52,6 +61,7 @@ interface ServiceAction {
   services?: IService[];
   vehicleOptions?: IVehicle[];
   serviceTypeOptions?: ServiceType[];
+  restrictionOptions?: IRestriction[];
 }
 
 type ServiceDispatchType = (args: ServiceAction) => ServiceAction;
